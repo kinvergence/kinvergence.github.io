@@ -4,227 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kinvergence — one family's rhythm, written down</title>
-<meta name="description" content="Four relatives, four households, four unrelated fields, meeting almost every week since 2022. What they do, how to try the smallest piece of it, and what we still don't know.">
+<meta name="description" content="Four relatives, four households, four unrelated fields, meeting almost every week since 2022. What we do, how to try the smallest piece of it, and what we still do not know.">
 
 <!-- Favicon: the convergent-paths mark, inlined so there are no external requests and no
      absolute paths. Adding a CNAME for kinvergence.org requires no change to this file. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='20' fill='%23FFD166' opacity='.16'/%3E%3Cpath d='M160,160 Q143.5,88.4 100,100' stroke='%23E63946' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3Cpath d='M40,160 Q111.6,143.5 100,100' stroke='%232EC4B6' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3Cpath d='M40,40 Q56.5,111.6 100,100' stroke='%236A4C93' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3Cpath d='M160,40 Q88.4,56.5 100,100' stroke='%233D5A80' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='100' cy='100' r='14' fill='%23FFD166'/%3E%3C/svg%3E">
 
-<!-- PALETTE IS PROVISIONAL. Taken from docs/brand/visual-identity.md and the existing marks in
-     docs/brand/assets/, which is the only palette the shipped assets actually embody. The full
-     brand pass — candidate marks against the model's Part IV filters, and reconciling the three
-     competing palettes — is postponed, not cancelled. See kinvergence-core/ROADMAP.md § 3c. -->
-<style>
-  :root {
-    --ink: #2B2B33;
-    --ink-soft: #55555f;
-    --ink-faint: #7c7c86;
-    --paper: #FAF8F4;
-    --paper-alt: #F2EDE4;
-    --rule: #e2ddd2;
-    --slate: #3D5A80;
-    --slate-deep: #2f4763;
-    --gold: #FFD166;
-    --gold-deep: #a97e12;
-    --coral: #E63946;
-    --teal: #2EC4B6;
-    --violet: #6A4C93;
-    --measure: 34rem;
-    --nav-h: 4.25rem;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1rem); }
-
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3 { line-height: 1.2; letter-spacing: -0.011em; margin: 0 0 0.75rem; }
-  h1 { font-size: clamp(1.95rem, 5.2vw, 3.1rem); font-weight: 700; letter-spacing: -0.022em; }
-  h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 700; }
-  h3 { font-size: 1.1rem; font-weight: 700; }
-  p { margin: 0 0 1.15rem; }
-  a { color: var(--slate-deep); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-  a:hover { color: var(--ink); }
-  :focus-visible { outline: 3px solid var(--slate); outline-offset: 3px; border-radius: 2px; }
-
-  .wrap { width: 100%; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
-  .measure { max-width: var(--measure); }
-
-  .skip {
-    position: absolute; left: -9999px; top: 0; z-index: 200;
-    background: var(--ink); color: #fff; padding: 0.75rem 1.25rem; border-radius: 0 0 6px 0;
-  }
-  .skip:focus { left: 0; }
-
-  /* ---------- Navigation ---------- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(250, 248, 244, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; min-height: var(--nav-h);
-  }
-  .brand {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
-    color: var(--ink); text-decoration: none;
-  }
-  .brand svg { width: 30px; height: 30px; display: block; }
-
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
-  .nav-links a {
-    color: var(--ink-soft); text-decoration: none; font-size: 0.9375rem; font-weight: 500;
-    padding: 0.35rem 0; border-bottom: 2px solid transparent;
-  }
-  .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); border-bottom-color: var(--gold); }
-
-  .nav-toggle {
-    display: none; background: none; border: 1px solid var(--rule); border-radius: 6px;
-    padding: 0.5rem 0.65rem; cursor: pointer; color: var(--ink);
-  }
-  .nav-toggle span { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; }
-  .nav-toggle span + span { margin-top: 5px; }
-
-  /* ---------- Hero ---------- */
-  .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
-  .hero-mark { width: clamp(62px, 11vw, 88px); height: auto; display: block; margin-bottom: 1.75rem; }
-  .hero h1 { max-width: 22ch; }
-  .hero-sub {
-    font-size: clamp(1.075rem, 2.1vw, 1.3rem);
-    color: var(--ink-soft); max-width: 46ch; margin-top: 1.25rem;
-  }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem 1.5rem; align-items: center; margin-top: 2rem; }
-  .btn {
-    display: inline-block; background: var(--ink); color: var(--paper);
-    padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none;
-    font-weight: 600; font-size: 0.9375rem;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .btn:hover { background: var(--slate-deep); color: var(--paper); transform: translateY(-1px); }
-  .btn-quiet { color: var(--ink-soft); font-size: 0.9375rem; }
-  .hero-note {
-    margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
-    font-size: 0.9375rem; color: var(--ink-faint); max-width: 42ch;
-  }
-
-  /* ---------- Sections ---------- */
-  section { padding: clamp(3rem, 7vw, 5.5rem) 0; border-top: 1px solid var(--rule); }
-  section.alt { background: var(--paper-alt); }
-  .eyebrow {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase;
-    color: var(--gold-deep); margin: 0 0 0.9rem;
-  }
-  .lede { font-size: 1.15rem; color: var(--ink-soft); }
-
-  blockquote {
-    margin: 1.75rem 0; padding: 0.15rem 0 0.15rem 1.35rem;
-    border-left: 3px solid var(--gold); font-size: 1.0625rem; color: var(--ink);
-  }
-  blockquote p { margin-bottom: 0.5rem; }
-  blockquote cite { display: block; font-style: normal; font-size: 0.875rem; color: var(--ink-faint); }
-
-  /* Timeline */
-  .timeline { list-style: none; margin: 2.5rem 0 0; padding: 0; max-width: 46rem; }
-  .timeline li {
-    display: grid; grid-template-columns: 8.5rem 1fr; gap: 0 1.5rem;
-    padding: 1rem 0; border-top: 1px solid var(--rule);
-  }
-  .timeline li:last-child { border-bottom: 1px solid var(--rule); }
-  .timeline .when { font-weight: 700; font-size: 0.9375rem; color: var(--slate-deep); }
-  .timeline .what { margin: 0; color: var(--ink-soft); }
-  .timeline .what strong { color: var(--ink); font-weight: 600; }
-
-  /* Refusals / limits list */
-  .stack { list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 46rem; }
-  .stack li { padding: 0.95rem 0; border-top: 1px solid var(--rule); color: var(--ink-soft); }
-  .stack li:last-child { border-bottom: 1px solid var(--rule); }
-  .stack strong { color: var(--ink); font-weight: 650; }
-
-  /* Agenda */
-  .agenda { counter-reset: step; list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 44rem; }
-  .agenda li {
-    counter-increment: step; position: relative;
-    padding: 0 0 1.35rem 3rem; color: var(--ink-soft);
-  }
-  .agenda li::before {
-    content: counter(step); position: absolute; left: 0; top: 0.05rem;
-    width: 1.9rem; height: 1.9rem; border-radius: 50%;
-    background: var(--gold); color: var(--ink);
-    display: grid; place-items: center; font-size: 0.875rem; font-weight: 700;
-  }
-  .agenda strong { color: var(--ink); font-weight: 650; }
-
-  .callout {
-    margin: 2.25rem 0 0; padding: 1.5rem 1.65rem;
-    background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--slate);
-    border-radius: 4px; max-width: 46rem;
-  }
-  section.alt .callout { background: var(--paper); }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .more { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); max-width: 46rem; }
-  .more p { color: var(--ink-soft); }
-
-  /* Ask */
-  #ask { background: var(--ink); color: var(--paper); border-top: none; }
-  #ask h2, #ask h3 { color: var(--paper); }
-  #ask .eyebrow { color: var(--gold); }
-  #ask p { color: #d8d5cf; }
-  #ask .big { font-size: clamp(1.25rem, 2.7vw, 1.7rem); color: var(--paper); line-height: 1.35; max-width: 26ch; font-weight: 600; }
-  #ask a { color: var(--gold); }
-  #ask a:hover { color: #fff; }
-  #ask .stack li { border-color: #3f3f49; color: #c9c6bf; }
-  #ask .stack strong { color: var(--paper); }
-  #ask .callout { background: #34343d; border-color: #45454f; border-left-color: var(--gold); }
-  #ask .callout p { color: #d8d5cf; }
-
-  footer {
-    background: var(--ink); color: var(--ink-faint);
-    padding: 3rem 0 4rem; border-top: 1px solid #3f3f49;
-    font-size: 0.9375rem;
-  }
-  footer p { max-width: 44rem; color: #a3a09a; }
-  footer a { color: #c9c6bf; }
-  footer a:hover { color: #fff; }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 46rem) {
-    .nav-toggle { display: block; }
-    .nav-links {
-      display: none; position: absolute; left: 0; right: 0; top: 100%;
-      flex-direction: column; gap: 0;
-      background: var(--paper); border-bottom: 1px solid var(--rule);
-      padding: 0.5rem 1.5rem 1rem;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links li { border-top: 1px solid var(--rule); }
-    .nav-links a { display: block; padding: 0.85rem 0; border-bottom: none; font-size: 1rem; }
-    .nav { position: relative; }
-    .timeline li { grid-template-columns: 1fr; gap: 0.3rem; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-    }
-    .btn:hover { transform: none; }
-  }
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
@@ -232,7 +18,7 @@
 
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="index.html">
       <svg viewBox="0 0 200 200" fill="none" aria-hidden="true" focusable="false">
         <circle cx="100" cy="100" r="20" fill="#FFD166" opacity="0.16"/>
         <path d="M160,160 Q143.5,88.4 100,100" stroke="#E63946" stroke-width="11" stroke-linecap="round"/>
@@ -249,10 +35,9 @@
     </button>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="#what-they-did">What one family did</a></li>
-      <li><a href="#what-this-could-be">What this could be</a></li>
-      <li><a href="#try-one-thing">Try one thing</a></li>
-      <li><a href="#ask">The ask</a></li>
+      <li><a href="story.html">Our story</a></li>
+      <li><a href="heartbeat.html">The Heartbeat</a></li>
+      <li><a href="honesty.html">What we do not know</a></li>
     </ul>
   </div>
 </nav>
@@ -263,14 +48,17 @@
        HERO
        Chosen 2026-08-25 (option B, rebuilt on the corrected timeline). Two
        swap-ready alternates, both approved in the same pass:
-         "One family has met almost every week for four years — after taking
-          nearly two years to find a shape that stuck."
+         "We have met almost every week for four years — after taking nearly
+          two years to find a shape that stuck."
          "The agreement came in 2020. The rhythm took another two years."
        Do not restore "every week for six years": the weekly rhythm began in
        May 2022, not 2021. Verified against the group's own message archive.
        Do not say "nothing happened" in 2020–22 either. The record is thin
        for that period because informal conversation obliges no artifact —
        not because the family was idle. See ROADMAP.md § 1, open claim 2.
+       Voice is first person as of 2026-08-27. Do not narrate SFV in the
+       third person; it reads as evasive and it forces the circumlocutions
+       that made the first draft feel machine-written.
        ===================================================================== -->
   <div id="top" class="hero">
     <div class="wrap">
@@ -290,14 +78,14 @@
 
       <h1>Four relatives agreed to help each other build things. It took almost two years to find a shape that stuck.</h1>
 
-      <p class="hero-sub">They talked the whole time — informally, mostly one to one, still working
-        largely alone. What finally held was smaller than any of that: an agenda, and a repeating slot
-        on the calendar. They have met almost every week since 2022. This is what they do, and we
-        would like to know whether it works for any family but ours.</p>
+      <p class="hero-sub">We talked constantly the whole time — informally, one to one, still
+        building alone. What finally worked was smaller than any of that: an agenda, and a repeating
+        slot on the calendar. We have met almost every week since. This is our family, and we would
+        like to know whether any of it works for a family other than ours.</p>
 
       <div class="hero-actions">
-        <a class="btn" href="#try-one-thing">See what they actually do</a>
-        <a class="btn-quiet" href="#what-they-did">Start from the beginning</a>
+        <a class="btn" href="#enough-to-start">Skip to the practice</a>
+        <a class="btn-quiet" href="#what-we-did">Start from the beginning</a>
       </div>
 
       <p class="hero-note">Somebody probably sent you here. That is the intended way to arrive, and
@@ -306,99 +94,79 @@
   </div>
 
   <!-- =====================================================================
-       1. WHAT ONE FAMILY ACTUALLY DID
-       Every date and quotation below is checkable against the group's own
-       message archive (2020-09-11 onward). No cumulative counts are used —
-       they go stale, and the ones in circulation did not survive checking.
+       1. WHAT WE ACTUALLY DID
+       Condensed 2026-08-27 (Pass 2). The full narrative, the six-row
+       timeline and the sourcing note now live in story.html; what stays
+       here is the setup, the founding quote, the thesis, and three dates.
+       Do not re-expand it — the length problem was measured twice, and the
+       remedy is this split. See DEVELOPMENT.md.
+       Members are named as of 2026-08-27. Ed and Julia are brother and
+       sister; Derek and Jason are Julia's sons; Helen is Ed's wife.
        ===================================================================== -->
-  <section id="what-they-did">
+  <section id="what-we-did">
     <div class="wrap">
       <p class="eyebrow">One</p>
-      <h2>What one family actually did</h2>
+      <h2>What we actually did</h2>
 
       <div class="measure">
-        <p class="lede">Scherer-Frailey Ventures. Four self-employed adults in one extended
-          family — two siblings, and the two sons of one of them — living in four separate
-          households and working in four fields with nothing to do with each other: software and
-          tooling, music teaching, creative media and visual art, and software consulting.</p>
+        <p class="lede">We are Scherer-Frailey Ventures: Ed and Julia, who are brother and sister,
+          and Julia's two sons, Derek and Jason. Four self-employed adults, four households, four
+          fields with nothing to do with each other — software and tooling, music teaching, creative
+          media and visual art, and software consulting.</p>
 
-        <p>In September 2020 they agreed to help each other more deliberately. The message that
-          started it was modest to the point of being vague, and deliberately so:</p>
-      </div>
+        <p>In September 2020 Derek wrote to the rest of us with an idea of Julia's: that we should
+          help each other more deliberately. The message was modest to the point of vague, on
+          purpose.</p>
 
-      <blockquote>
-        <p>“The exact form of collaboration is not important — what's important is forming an
-          agreement to be available, so that the solo entrepreneur is less constrained and more
-          enabled to plan.”</p>
-        <cite>The founding message, 11 September 2020</cite>
-      </blockquote>
+        <blockquote>
+          <p>“The exact form of collaboration is not important — what's important is forming an
+            agreement to be available, so that the solo entrepreneur is less constrained and more
+            enabled to plan.”</p>
+          <cite>Derek, in the founding message — 11 September 2020</cite>
+        </blockquote>
 
-      <div class="measure">
-        <p>Everyone was in. Everyone meant it. <strong>And for nearly two years it stayed exactly
-          that informal.</strong></p>
-
-        <p>People talked — often, and mostly one to one. They swapped links, read each other's
-          drafts, and encouraged each other through some genuinely hard stretches. But each of them
-          was still pushing a venture forward largely alone, and there was no occasion that obliged
-          anybody to show up. Very little of that period left a record. The group's own reading of
-          that now, having thought about it a great deal, is not that nothing was happening: it is
-          that <em>a practice which obliges no artifact leaves no trace</em>, which turns out to be
-          one of the more useful things this family has worked out about itself.</p>
-
-        <p>What changed was small. In May 2022 one member proposed a three-item agenda and a
-          standing weekly slot — go around the room with a short status, then open discussion, then
-          talk about the tools and habits you use <em>on</em> your work rather than in it. Two weeks
-          later the meeting had a name. A month after that, somebody suggested they all practice
-          introducing themselves, and that became the first item. The same conversation proposed
-          getting together in person on the first of August to <em>demonstrate</em> what each of
-          them was working on rather than describe it.</p>
-
-        <p>None of it was designed. It accumulated. The agenda has been revised, the meeting has
-          been shortened and lengthened, and the tools underneath it have been chosen, configured,
-          argued about and replaced more than once. What has not changed is that it repeats: the
-          call has happened almost every week since, and the in-person gathering roughly every
-          month — through stretches when members had a great deal to show and stretches when they
-          had nothing at all.</p>
+        <p>We were all in. We all meant it. <strong>And for nearly two years it stayed exactly that
+          informal.</strong></p>
       </div>
 
       <ol class="timeline">
-        <li><span class="when">Sept 2020</span><p class="what"><strong>An agreement, and no schedule.</strong> Four relatives agree to be available to each other. Nothing is put on a calendar.</p></li>
-        <li><span class="when">2020&ndash;2022</span><p class="what"><strong>Informal.</strong> Real conversations, mostly one to one, largely unrecorded. Everyone still building alone.</p></li>
-        <li><span class="when">May 2022</span><p class="what"><strong>An agenda and a standing slot.</strong> The first thing that repeats.</p></li>
-        <li><span class="when">June 2022</span><p class="what"><strong>It gets a name.</strong> The weekly call becomes the Heartbeat.</p></li>
-        <li><span class="when">Aug 2022</span><p class="what"><strong>The first Demo Day.</strong> Everyone shows something instead of describing it.</p></li>
-        <li><span class="when">Since</span><p class="what"><strong>Almost every week</strong>, refined continuously. In person roughly monthly. Still going.</p></li>
+        <li><span class="when">Sept 2020</span><p class="what"><strong>An agreement, and no schedule.</strong> Nothing goes on a calendar.</p></li>
+        <li><span class="when">May 2022</span><p class="what"><strong>An agenda and a standing weekly slot.</strong> The first thing that repeats.</p></li>
+        <li><span class="when">Since</span><p class="what"><strong>Almost every week.</strong> In person roughly monthly. Still being revised.</p></li>
       </ol>
 
       <div class="callout">
-        <p><strong>The two years are the part worth taking away.</strong> Four willing people, a
-          genuinely good idea, and a standing offer of help produced a great deal of goodwill and
-          not much that repeated. Nobody became more committed in May 2022 — somebody wrote down an
-          agenda and put a recurring appointment on the calendar, and that turned out to be the
-          whole difference.</p>
-        <p>Everything after it has been refinement, and the refinement is still going.</p>
+        <p><strong>The twenty months are the part worth taking away.</strong> Four willing people, a
+          good idea, and a standing offer of help produced a lot of goodwill and almost nothing that
+          repeated. None of us became more committed in May 2022. Somebody wrote down an agenda and
+          put a recurring appointment on the calendar, and that was the whole difference.</p>
       </div>
 
-      <div class="more measure">
-        <p>Nobody set out to build a framework. In 2026 the four of them separated the pattern from
-          the family that found it, gave it a name, and wrote it down so that another family could
-          try it. That writing is <a href="https://github.com/kinvergence/kinvergence-core">all
-          public</a>, and this is the entire evidence base behind it: one family.</p>
-        <p>That matters, and there is more on it <a href="#ask">further down</a>.</p>
+      <blockquote style="margin-top:2.75rem">
+        <p>“I hate meetings. but I look forward to FV meetings. It's because I'm perfectly
+          comfortable hanging out, saying anything. no stress about how people will judge me.”</p>
+        <cite>Derek, 22 June 2026. FV — Family Ventures — is what we called ourselves then.</cite>
+      </blockquote>
+
+      <div class="measure">
+        <a class="onward" href="story.html">The whole story, with the dates and the sources</a>
       </div>
     </div>
   </section>
 
   <!-- =====================================================================
-       2. WHAT WE WANT THIS TO BECOME
+       2. WHAT WE HOPE THIS BECOMES
        Drawn from kinvergence-core/docs/vision.md. The refusals carry this
        section; ambitions get one paragraph. Deliberately no "Core Values" —
        values are what each family names for itself.
+       kinvergence-core is PRIVATE and stays private (decided 2026-08-27):
+       it is the working corpus, not the publication. Do not link it. Depth
+       gets promoted onto this site as curated pages instead.
        ===================================================================== -->
-  <section id="what-this-could-be" class="alt">
+  <section id="what-we-hope" class="alt">
     <div class="wrap">
       <p class="eyebrow">Two</p>
-      <h2>What we want this to become</h2>
+      <h2>What we hope this becomes</h2>
 
       <div class="measure">
         <p class="lede">The people best positioned to help each other are very often already
@@ -406,116 +174,126 @@
           on purpose, kept as small as it can be and still work.</p>
 
         <p>We are not trying to grow it, and we are not trying to be the ones who help. If a family
-          runs this and never tells us, that is a success. If a family reads every word here, ignores
-          all of it, and simply starts calling each other every week, that is also a success. The
-          practices are methods, and methods are not the kind of thing anyone owns.</p>
+          runs this and never tells us, that is a success. If a family ignores all of it and simply
+          starts calling each other every week, that is also a success. These are methods, and
+          methods are not the kind of thing anyone owns.</p>
 
-        <p>What we are actually short of is not interest. It is a second family.</p>
+        <p>What we need is one family, other than ours, willing to try it.</p>
       </div>
 
       <h3 style="margin-top:2.75rem">What it will not become</h3>
       <ul class="stack">
-        <li><strong>Not a course or a program.</strong> There is nothing to complete. Anything that can be finished is not this.</li>
+        <li><strong>Not a course or a program.</strong> Anything that can be finished is not this.</li>
         <li><strong>Not a consultancy.</strong> The moment running someone else's group is a service we sell, it stops being something a family does for itself.</li>
-        <li><strong>Not a movement with a leader.</strong> One of us wrote most of it down. That is authorship, not authority.</li>
-        <li><strong>Not an app or a platform.</strong> A tool would quietly replace the practice, and the practice is the entire thing.</li>
-        <li><strong>Not a vocabulary.</strong> Somebody proposed inventing terms for all of it. We declined. The objection that carried: it is a meeting, and a meeting already has a name.</li>
-        <li><strong>Not a thing that outgrows its own advice.</strong> We tell an adopting family to skip the name, the logo, and the website, because all three feel like starting and are a reliable way of not starting. We have already broken that rule once. Everything downstream of it stays deliberately small — including this page.</li>
+        <li><strong>Not a movement with a leader.</strong> Ed wrote most of it down. That is authorship, not authority.</li>
+        <li><strong>Not an app or a platform.</strong> A tool would quietly replace the practice, and the practice is the whole thing.</li>
+        <li><strong>Not a vocabulary.</strong> Somebody proposed inventing terms for all of it. Derek's objection carried: it is a meeting, and a meeting already has a name.</li>
+        <li><strong>Not a thing that outgrows its own advice.</strong> We tell an adopting family to skip the name, the logo, and the website, because all three feel like starting and are a reliable way of not starting. We have already broken that rule once.</li>
       </ul>
 
       <div class="more measure">
-        <p>The longer version was written as a proposal to the four of us rather than as an
-          announcement, and it has not been agreed yet:
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/vision.md">read the vision</a>.</p>
+        <p>The longer version of this was written as a proposal to the four of us rather than as an
+          announcement, and we have not agreed it yet.</p>
       </div>
     </div>
   </section>
 
   <!-- =====================================================================
-       3. ENOUGH TO TRY ONE THING
-       The Heartbeat only. Demo Day, stewardship and the charter get a
-       sentence each and a link — per ROADMAP § 3a. Shared tooling is on the
-       skip-list on purpose and is named as such.
+       3. ENOUGH TO START
+       The Heartbeat only, and only the agenda plus the skip-list. The three
+       failure modes and everything that comes after the Heartbeat moved to
+       heartbeat.html on 2026-08-27. Shared tooling is on the skip-list on
+       purpose and is named as such.
        ===================================================================== -->
-  <section id="try-one-thing">
+  <section id="enough-to-start">
     <div class="wrap">
       <p class="eyebrow">Three</p>
-      <h2>Enough to try one thing</h2>
+      <h2>Enough to start</h2>
 
       <div class="measure">
-        <p class="lede">Of the four things this family does, one is the engine, and it is the one a
-          family can start next week. It costs an hour. It needs two or three relatives who are each
-          building something of their own.</p>
+        <p class="lede">Of the things we do, one is the engine, and it is the one a family can
+          start next week. It costs an hour. It needs two or three relatives who are each building
+          something of their own.</p>
 
-        <p>It is called the Heartbeat, because that is what it does — a regular pulse whose absence
+        <p>We call it the Heartbeat, because that is what it does — a regular pulse whose absence
           would be noticed. Same slot every week. Video. Everyone speaks, in turn, every time.</p>
       </div>
 
+      <!-- Twelve columns are twelve weeks. The third row is the point: it is the practice with no
+           occasion, which is exactly why it leaves no record. Do not decorate this. -->
+      <figure class="cadence">
+        <ul class="cadence-rows">
+          <li class="cadence-row">
+            <span class="cadence-label"><strong>Every week</strong> The Heartbeat, on a call</span>
+            <span class="cadence-track" aria-hidden="true">
+              <span class="beat"></span><span class="beat"></span><span class="beat"></span>
+              <span class="beat"></span><span class="beat"></span><span class="beat"></span>
+              <span class="beat"></span><span class="beat"></span><span class="beat"></span>
+              <span class="beat"></span><span class="beat"></span><span class="beat"></span>
+            </span>
+          </li>
+          <li class="cadence-row">
+            <span class="cadence-label"><strong>Every month</strong> Demo Day, in one room</span>
+            <span class="cadence-track" aria-hidden="true">
+              <span></span><span></span><span></span><span class="beat-major"></span>
+              <span></span><span></span><span></span><span class="beat-major"></span>
+              <span></span><span></span><span></span><span class="beat-major"></span>
+            </span>
+          </li>
+          <li class="cadence-row">
+            <span class="cadence-label"><strong>Continuously</strong> Being available to each other</span>
+            <span class="cadence-track" aria-hidden="true">
+              <span class="beat-band"></span>
+            </span>
+          </li>
+        </ul>
+        <figcaption>Three rhythms, over three months. <strong>The weekly call is the engine, and
+          the only one a family needs to start.</strong> Ours ran for two years before the monthly
+          gathering existed. The third has no occasion at all — which is why it leaves no record,
+          and why it is the one a family loses without noticing.</figcaption>
+      </figure>
+
       <ol class="agenda">
         <li><strong>Who you are and what you are working on, in a sentence.</strong> As you would say
-          it to a stranger. It sounds like a warm-up. It is not: it is where a member hears the
-          familiar description of the work out loud and notices it stopped being true months ago.</li>
-        <li><strong>What you got done. What you are doing next. What you learned — including from
-          what failed. What you changed about how you work.</strong> That last one is the first thing
-          groups drop and the one most worth keeping. It is how an improvement one member found
-          reaches everybody else.</li>
-        <li><strong>What the next in-person gathering is for.</strong> Two minutes, once a week, and
-          a month of four people working separately acquires a shared shape.</li>
-        <li><strong>Open discussion.</strong> No agenda at all. This is where the actual helping gets
+          it to a stranger. It sounds like a warm-up. It is not — it is where you hear your own
+          description out loud and notice it stopped being true months ago.</li>
+        <li><strong>What you got done, what is next, what you learned — and what you changed about
+          how you work.</strong> That last one is the first thing groups drop and the one most worth
+          keeping.</li>
+        <li><strong>What the next in-person gathering is for.</strong> Two minutes a week, and a
+          month of separate work acquires a shared shape.</li>
+        <li><strong>Open discussion.</strong> No agenda. This is where the actual helping gets
           arranged, which is why it is not optional.</li>
       </ol>
 
-      <h3 style="margin-top:2.5rem">Three things that are easy to get wrong</h3>
-      <ul class="stack">
-        <li><strong>Weekly, not monthly.</strong> Families fall out of alignment continuously, just
-          from living. If the meetings come round slower than that, they stop adding up. If an hour
-          is too expensive, shorten the meeting — do not space it out.</li>
-        <li><strong>Go when you have nothing to report.</strong> This is the counterintuitive one, and
-          it is close to the whole practice. The week a member has nothing to show is exactly the week
-          the others need to hear from that member — and exactly the week the temptation to skip is
-          strongest.</li>
-        <li><strong>Expect the first three months to feel thin.</strong> They are supposed to. That is
-          where most groups quit — before the thing has had enough repetitions to do anything at all.</li>
-        <li><strong>Expect to get the details wrong for a while.</strong> The agenda above took the
-          first family about a year of adjusting, and the tools underneath it took considerably
-          longer. Start with something that repeats and fix it as you go.</li>
-      </ul>
-
-      <div class="callout">
-        <p><strong>Skip, for now:</strong> the name, the logo, the website, the legal entity, and the
-          shared tools. Every one of them feels like starting. Every one of them is a way of not
-          starting.</p>
-        <p>The family above is the evidence. They spent two years discovering that goodwill on its
-          own is no substitute for a recurring appointment — and they set nothing purpose-built up
-          until <em>after</em> the practice was already working, using a group chat they happened to
-          have. The tools followed the rhythm. They have never once led it.</p>
+      <h3 style="margin-top:2.5rem">Skip, for now</h3>
+      <div class="callout" style="margin-top:1.25rem">
+        <p><strong>Skip the name, the logo, the website, the legal entity, and the shared tools.</strong>
+          Every one of them feels like starting. Every one of them is a way of not starting.</p>
+        <p>We are the evidence. We set up nothing purpose-built until <em>after</em> the practice was
+          already working — we used a group chat we already had. Our tools followed the rhythm. They
+          never led it.</p>
       </div>
 
-      <div class="more measure">
-        <p>There is more, and it can wait. A <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/practices/demo-day.md">monthly
-          gathering</a> where everybody shows the work rather than describing it. A
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/practices/stewardship.md">standing
-          agreement</a> to be available in between. An
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/practices/charter.md">agreement
-          the family writes with itself</a> — years in, once there is something true to write down.</p>
-        <p>Start with the call.
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/practices/heartbeat.md">The Heartbeat in full</a> ·
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/adoption/getting-started.md">Getting started</a> ·
-          <a href="https://github.com/kinvergence/kinvergence-core/blob/main/docs/kinvergence.md">The whole framework, in one sitting</a></p>
+      <div class="measure">
+        <a class="onward" href="heartbeat.html">How to run one, and what to expect</a>
       </div>
     </div>
   </section>
 
   <!-- =====================================================================
-       4. THE ASK, WITH THE HONEST LIMITS
+       4. THE ASK
        Ask = permission-to-leave opening + correction-over-agreement close.
-       Limits are SPLIT: the load-bearing one sits inside the ask, the rest
-       under its own heading immediately below at full weight. Not a caveat,
-       not collapsed, not greyed out.
-       No link destination by decision — the invitation is the channel. The
-       Discord server is invite-only by design and is deliberately not linked.
+       The load-bearing limit — we cannot tell from the inside how much was
+       the framework and how much was just us — STAYS HERE at full weight,
+       inside the ask, as its justification. The remaining four moved to
+       honesty.html on 2026-08-27, deliberately reopening the 08-25 "never
+       collapsed" decision; the link below must stay prominent and must
+       never become a footnote. See DEVELOPMENT.md.
+       No link destination for the ask itself, by decision — the invitation
+       is the channel. The Discord server is invite-only by design.
        ===================================================================== -->
-  <section id="ask">
+  <section id="ask" class="dark">
     <div class="wrap">
       <p class="eyebrow">Four</p>
       <h2>An honest ask</h2>
@@ -528,40 +306,24 @@
           waiting on the other side, and nobody keeping track. We would rather say that plainly than
           put a button here that nobody answers.</p>
 
-        <p>But there is one thing we want, and it is worth being direct about.</p>
+        <p>But there is one thing we want.</p>
 
-        <p><strong style="color:var(--paper)">We are looking for one more family.</strong> Not to
-          approve of this — to try it for a few months and then tell us what we got wrong. That is
-          worth considerably more to us than being agreed with, because everything written here
-          generalizes from a single family, and <strong style="color:var(--paper)">we cannot tell
-          from the inside how much of it was the framework and how much was just us</strong>. A
-          second family would find that out almost immediately. It is the single strongest reason
-          this page exists.</p>
+        <p><strong class="bright">We are looking for one more family.</strong> Not to approve of
+          this — to try it for a few months and then tell us what we got wrong. That is worth more
+          to us than agreement, because all of this generalizes from a single family, and
+          <strong class="bright">we cannot tell from the inside how much was the framework and how
+          much was just us</strong>. A second family would find that out almost immediately.</p>
       </div>
 
       <div class="callout">
-        <p><strong>If any of that sounds like your family:</strong> tell the person who sent you
-          here that you would like to talk. That is not a placeholder for a form — it is genuinely
-          how this works, and it is exactly how the four of them started. One conversation, with
-          somebody you already know.</p>
+        <p><strong>If any of that sounds like your family:</strong> tell the person who sent you here
+          that you would like to talk. That is not a placeholder for a form — it is how this works,
+          and it is how the four of us started. One conversation, with somebody you already know.</p>
       </div>
 
-      <h3 style="margin-top:3rem">What else we do not know</h3>
-      <p class="measure" style="margin-bottom:0.5rem">Carried in the open, because a framework that
-        hides these is a pitch.</p>
-      <ul class="stack">
-        <li><strong>Weekly works. We do not know what else would.</strong> Nobody has tested a
-          gentler rhythm, and nobody has measured how fast a family actually drifts.</li>
-        <li><strong>The monthly gathering is claimed to need to be in person.</strong> That claim has
-          never been tested against a family that could not gather.</li>
-        <li><strong>The least visible practice is the least evidenced.</strong> Years of being
-          available to each other left almost no written record, so much of what we have written
-          about it is reasoning rather than observation. We label it as such.</li>
-        <li><strong>It assumes goodwill.</strong> The framework says nothing about family conflict
-          and cannot. Where the willingness to help is not already there, no rhythm will supply it.</li>
-        <li><strong>Nobody has ever asked a family outside this one whether they want any of this.</strong>
-          As far as we know, you are among the first to be asked.</li>
-      </ul>
+      <div class="measure">
+        <a class="onward" href="honesty.html">Everything else we are unsure about</a>
+      </div>
     </div>
   </section>
 
@@ -569,37 +331,22 @@
 
 <footer>
   <div class="wrap">
-    <p><strong style="color:#c9c6bf">Kinvergence is a joint creation of Scherer-Frailey Ventures.</strong>
+    <p><strong>Kinvergence is a joint creation of Scherer-Frailey Ventures.</strong>
       The practices are years of four people's work and the name was chosen together. Who holds it has
       not been settled, and no license has been granted yet. We would rather say so than imply
       otherwise.</p>
     <p>The practices themselves are methods, and methods are not the kind of thing anyone owns.
       Nothing stops a family from running them today.</p>
-    <p>Everything written down lives at
-      <a href="https://github.com/kinvergence/kinvergence-core">github.com/kinvergence</a>.
-      The first family is at
-      <a href="https://scherer-frailey-ventures.github.io/">scherer-frailey-ventures.github.io</a>.</p>
+    <p class="footer-nav">
+      <a href="story.html">Our story</a>
+      <a href="heartbeat.html">The Heartbeat</a>
+      <a href="honesty.html">What we do not know</a>
+      <a href="https://scherer-frailey-ventures.github.io/">Scherer-Frailey Ventures</a>
+    </p>
   </div>
 </footer>
 
-<script>
-  (function () {
-    var toggle = document.querySelector('.nav-toggle');
-    var links = document.getElementById('nav-links');
-
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
-</script>
+<script src="assets/site.js"></script>
 
 </body>
 </html>

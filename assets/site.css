@@ -1,0 +1,281 @@
+/* Kinvergence — shared stylesheet for all pages.
+
+   PALETTE IS PROVISIONAL. Taken from kinvergence-core docs/brand/visual-identity.md and the
+   existing marks in docs/brand/assets/, which is the only palette the shipped assets actually
+   embody. The full brand pass — candidate marks against the model's Part IV filters, and
+   reconciling the three competing palettes — is postponed, not cancelled. See ROADMAP.md § 3c. */
+
+:root {
+  --ink: #2B2B33;
+  --ink-soft: #55555f;
+  --ink-faint: #7c7c86;
+  --paper: #FAF8F4;
+  --paper-alt: #F2EDE4;
+  --rule: #e2ddd2;
+  --slate: #3D5A80;
+  --slate-deep: #2f4763;
+  --navy-deep: #24384f;
+  --gold: #FFD166;
+  --gold-deep: #a97e12;
+  --coral: #E63946;
+  --teal: #2EC4B6;
+  --violet: #6A4C93;
+  --measure: 34rem;
+  --nav-h: 4.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1rem); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.011em; margin: 0 0 0.75rem; }
+h1 { font-size: clamp(1.95rem, 5.2vw, 3.1rem); font-weight: 700; letter-spacing: -0.022em; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0 0 1.15rem; }
+a { color: var(--slate-deep); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--slate); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: 100%; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+.measure { max-width: var(--measure); }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--ink); color: #fff; padding: 0.75rem 1.25rem; border-radius: 0 0 6px 0;
+}
+.skip:focus { left: 0; }
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 248, 244, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: var(--nav-h);
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none;
+}
+.brand svg { width: 30px; height: 30px; display: block; }
+
+.nav-links { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-size: 0.9375rem; font-weight: 500;
+  padding: 0.35rem 0; border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); border-bottom-color: var(--gold); }
+.nav-links a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--gold); }
+
+.nav-toggle {
+  display: none; background: none; border: 1px solid var(--rule); border-radius: 6px;
+  padding: 0.5rem 0.65rem; cursor: pointer; color: var(--ink);
+}
+.nav-toggle span { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; }
+.nav-toggle span + span { margin-top: 5px; }
+
+/* ---------- Hero (home page) ---------- */
+.hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+.hero-mark { width: clamp(62px, 11vw, 88px); height: auto; display: block; margin-bottom: 1.75rem; }
+.hero h1 { max-width: 22ch; }
+.hero-sub {
+  font-size: clamp(1.075rem, 2.1vw, 1.3rem);
+  color: var(--ink-soft); max-width: 46ch; margin-top: 1.25rem;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem 1.5rem; align-items: center; margin-top: 2rem; }
+.btn {
+  display: inline-block; background: var(--ink); color: var(--paper);
+  padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none;
+  font-weight: 600; font-size: 0.9375rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn:hover { background: var(--slate-deep); color: var(--paper); transform: translateY(-1px); }
+.btn-quiet { color: var(--ink-soft); font-size: 0.9375rem; }
+.hero-note {
+  margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+  font-size: 0.9375rem; color: var(--ink-faint); max-width: 42ch;
+}
+
+/* ---------- Interior page header ---------- */
+.pagehead { padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
+.pagehead h1 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); max-width: 24ch; }
+.pagehead .lede { margin-top: 1rem; max-width: 46ch; }
+.pagehead .eyebrow { margin-bottom: 0.75rem; }
+
+/* ---------- Sections ---------- */
+section { padding: clamp(3rem, 7vw, 5.5rem) 0; border-top: 1px solid var(--rule); }
+section.alt { background: var(--paper-alt); }
+section.tight { padding: clamp(2.25rem, 5vw, 3.5rem) 0; }
+.eyebrow {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--gold-deep); margin: 0 0 0.9rem;
+}
+.lede { font-size: 1.15rem; color: var(--ink-soft); }
+
+blockquote {
+  margin: 1.75rem 0; padding: 0.15rem 0 0.15rem 1.35rem; max-width: var(--measure);
+  border-left: 3px solid var(--gold); font-size: 1.0625rem; color: var(--ink);
+}
+blockquote p { margin-bottom: 0.5rem; }
+blockquote cite { display: block; font-style: normal; font-size: 0.875rem; color: var(--ink-faint); }
+
+/* Timeline */
+.timeline { list-style: none; margin: 2.5rem 0 0; padding: 0; max-width: 46rem; }
+.timeline li {
+  display: grid; grid-template-columns: 8.5rem 1fr; gap: 0 1.5rem;
+  padding: 1rem 0; border-top: 1px solid var(--rule);
+}
+.timeline li:last-child { border-bottom: 1px solid var(--rule); }
+.timeline .when { font-weight: 700; font-size: 0.9375rem; color: var(--slate-deep); }
+.timeline .what { margin: 0; color: var(--ink-soft); }
+.timeline .what strong { color: var(--ink); font-weight: 600; }
+
+/* Refusals / limits list */
+.stack { list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 46rem; }
+.stack li { padding: 0.95rem 0; border-top: 1px solid var(--rule); color: var(--ink-soft); }
+.stack li:last-child { border-bottom: 1px solid var(--rule); }
+.stack strong { color: var(--ink); font-weight: 650; }
+
+/* Agenda */
+.agenda { counter-reset: step; list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 44rem; }
+.agenda li {
+  counter-increment: step; position: relative;
+  padding: 0 0 1.35rem 3rem; color: var(--ink-soft);
+}
+.agenda li::before {
+  content: counter(step); position: absolute; left: 0; top: 0.05rem;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: var(--gold); color: var(--ink);
+  display: grid; place-items: center; font-size: 0.875rem; font-weight: 700;
+}
+.agenda strong { color: var(--ink); font-weight: 650; }
+
+.callout {
+  margin: 2.25rem 0 0; padding: 1.5rem 1.65rem;
+  background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--slate);
+  border-radius: 4px; max-width: 46rem;
+}
+section.alt .callout { background: var(--paper); }
+.callout p:last-child { margin-bottom: 0; }
+
+.more { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); max-width: 46rem; }
+.more p { color: var(--ink-soft); }
+
+/* ---------- Cadence diagram ----------
+   Twelve columns = twelve weeks. The information is the *pattern* — twelve marks, three marks,
+   one unbroken band — so the tracks are aria-hidden and the figcaption states it in words. */
+.cadence { margin: 2.25rem 0 0; padding: 0; max-width: 46rem; }
+.cadence-rows { list-style: none; margin: 0; padding: 0; }
+.cadence-row {
+  display: grid; grid-template-columns: 14rem 1fr; gap: 0 1.5rem; align-items: center;
+  padding: 1.15rem 0; border-top: 1px solid var(--rule);
+}
+.cadence-row:last-child { border-bottom: 1px solid var(--rule); }
+.cadence-label { font-size: 0.9375rem; color: var(--ink-soft); }
+.cadence-label strong { display: block; color: var(--ink); font-weight: 650; font-size: 1rem; }
+
+.cadence-track {
+  position: relative; display: grid; grid-template-columns: repeat(12, 1fr);
+  align-items: center; height: 1.6rem;
+}
+.cadence-track::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1px; background: var(--rule);
+}
+.beat { justify-self: center; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.22); }
+.beat-major { justify-self: center; width: 15px; height: 15px; border-radius: 50%; background: var(--slate); }
+.beat-band {
+  grid-column: 1 / -1; height: 10px; border-radius: 999px;
+  background: linear-gradient(90deg, rgba(61,90,128,0.18), rgba(61,90,128,0.42), rgba(61,90,128,0.18));
+}
+.cadence figcaption { margin-top: 1.35rem; font-size: 0.9375rem; color: var(--ink-soft); max-width: var(--measure); }
+.cadence figcaption strong { color: var(--ink); font-weight: 650; }
+
+/* Continue link — the promise that a short section is deliberate rather than thin. */
+.onward {
+  display: inline-flex; align-items: baseline; gap: 0.5rem;
+  margin-top: 1.75rem; font-weight: 650; font-size: 1.0625rem;
+  color: var(--slate-deep); text-decoration-thickness: 2px;
+}
+.onward::after { content: "\2192"; transition: transform 0.15s ease; }
+.onward:hover::after { transform: translateX(3px); }
+
+/* ---------- Dark sections (the ask, and interior page equivalents) ---------- */
+.dark { background: var(--slate-deep); color: var(--paper); border-top: none; }
+.dark h2, .dark h3 { color: var(--paper); }
+.dark .eyebrow { color: var(--gold); }
+.dark p { color: #d6dfe9; }
+.dark strong.bright { color: var(--paper); }
+.dark .big { font-size: clamp(1.25rem, 2.7vw, 1.7rem); color: var(--paper); line-height: 1.35; max-width: 26ch; font-weight: 600; }
+.dark a { color: var(--gold); }
+.dark a:hover { color: #fff; }
+.dark .onward { color: var(--gold); }
+.dark .stack li { border-color: #4a637f; color: #c6d3e0; }
+.dark .stack strong { color: var(--paper); }
+.dark .callout { background: #3a5573; border-color: #4d6b8c; border-left-color: var(--gold); }
+.dark .callout p { color: #d6dfe9; }
+.dark .more { border-color: #4a637f; }
+
+footer {
+  background: var(--navy-deep); color: #93a5b8;
+  padding: 3rem 0 4rem; border-top: 1px solid #3a5573;
+  font-size: 0.9375rem;
+}
+footer p { max-width: 44rem; color: #a8b8c8; }
+footer strong { color: #cfdae6; }
+footer a { color: #cfdae6; }
+footer a:hover { color: #fff; }
+.footer-nav { margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid #3a5573; }
+.footer-nav a + a { margin-left: 1.25rem; }
+
+/* ---------- Responsive ---------- */
+/* Nav labels lengthened in the 2026-08-27 copy pass; tighten before the toggle takes over. */
+@media (max-width: 58rem) {
+  .nav-links { gap: 1.1rem; }
+  .nav-links a { font-size: 0.875rem; }
+}
+
+@media (max-width: 46rem) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; gap: 0;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 1.5rem 1rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-top: 1px solid var(--rule); }
+  .nav-links a { display: block; padding: 0.85rem 0; border-bottom: none; font-size: 1rem; }
+  .nav { position: relative; }
+  .timeline li { grid-template-columns: 1fr; gap: 0.3rem; }
+  .cadence-row { grid-template-columns: 1fr; gap: 0.55rem; }
+  .footer-nav a { display: block; margin: 0 0 0.6rem; }
+  .footer-nav a + a { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .btn:hover { transform: none; }
+  .onward:hover::after { transform: none; }
+}
