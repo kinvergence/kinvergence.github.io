@@ -243,6 +243,35 @@ or relative; no absolute `github.io` URL appears anywhere.
   first names only. Both the credibility gain and the anti-"AI slop" effect were larger than
   expected; the privacy cost is small, since all four are already public on the SFV site.
 
+## Feedback awaiting action
+
+**Julia, via the SFV Telegram group, night of 2026-08-27 — her first read of the Pass 2 four-page
+site.** Recorded as evidence, not yet applied — Ed's attention moved to `advance-sfv-2.md` the next
+day. Apply before Julia's reunion (09-18) and before treating Pass 2 as done.
+
+| She said | Reading / action |
+|---|---|
+| Liked the four-page split; "Skip to the practice" vs. "Start from the beginning" — "like a quick start option when you buy a new tool" | Validates the Pass 2 structural bet. No action |
+| Timeline "so, so cool"; found it interesting/inspiring despite having lived it; "leaving no trace... so important" | `story.html`'s no-trace argument (open claim 2) lands even for a member who was there. No action |
+| "What we got wrong" is "illuminating... people will like seeing that, haha" | `honesty.html`'s errors section works as intended. No action |
+| "This does *not* read like AI slop at all" | Direct reversal of her Pass 1 reaction. The first-person, named-members voice fix worked. No action |
+| Confused by "Carried in the open…" under "What we do not know" — asked whether it means the limits are freely exposed for others to observe or modify | **Actionable.** Ambiguous even to a sympathetic reader on a second pass. Needs a clearer rephrase on `honesty.html` |
+| "The one that matters most: YES. This sums up the purpose of the site succinctly and clearly" | The load-bearing limit (kept at full weight per § The limits, and why they moved) is landing as intended. No action |
+| Liked the list of things never tested | No action |
+| Loved *"Nobody has ever asked a family outside ours whether they want any of this... you are among the first to be asked"* — "I'd highlight it in some way" | **Actionable.** Consider a visual callout/pull-quote treatment on `honesty.html` |
+| "Who holds this" — "interesting... will do so [think about it] when the time is right" | Ownership question landing as intended; she's holding it for the 09-07 Demo Day conversation, not asking for a site change |
+| The "Put it on the calendar" ask at the bottom "did not jump out... in fact, I nearly missed it. Perhaps it was the blue color" | **Actionable, and the most important item here** — the ask is the whole point of the site and is under-visible. See tension note below |
+| "Cut to the chase" (short) path "worked just fine... ample information without being overwhelming" | Validates the "Skip to the practice" quick-start path |
+| Expects first-time visitors to go back and forth between long and short, "like thumbing through the chapters of a book" | Validates the dual-path navigation model |
+
+Sign-off: *"Well done, Little Brother. I like this direction."*
+
+**Tension with an existing decision.** The ask section's color was changed to deep navy specifically
+on 2026-08-27 because of an earlier Julia reaction against near-black. This new reaction — the same
+section barely noticed, "perhaps... the blue color" — could mean that fix undershot, or that
+visibility here is a weight/size/whitespace problem rather than a hue problem. Needs a fresh look at
+the section as a whole, not just another color swap.
+
 ## History
 
 - **2026-08-27 — Pass 2: three curated pages, and the home page finally gets short.** Split into
