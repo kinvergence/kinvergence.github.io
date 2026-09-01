@@ -1,3 +1,14 @@
+---
+maintenance_instructions: |
+  Working notes for the site — current-state only: structure, hard constraints, do-not-reintroduce
+  list, checked facts, decisions in force, verification checklist, deploying instructions. Scope and
+  reasoning decisions live in kinvergence-core `ROADMAP.md` § 3a/§ 3c; this file stays repo-local
+  build detail. The moment something here is resolved, dated, or turns into narrative — a feedback
+  round applied, the story of how a decision was reached — move it to CHANGELOG.md in the same edit.
+  Never leave a resolved item, a feedback-awaiting-action table, or a pass-by-pass history narrative
+  sitting here.
+---
+
 # Development
 
 Working notes for the site. Read this before changing copy.
@@ -76,7 +87,7 @@ Violating any of these is a defect, not a style preference.
 
 | Rule | Source |
 |---|---|
-| **First person, always.** The site is written *by* the family it describes. Never "they", "one member", "somebody" for SFV. Third-person narration forces circumlocutions and reads as evasive | Adopted 2026-08-27; see § History |
+| **First person, always.** The site is written *by* the family it describes. Never "they", "one member", "somebody" for SFV. Third-person narration forces circumlocutions and reads as evasive | See `CHANGELOG.md` 2026-08-27 |
 | **Members are named.** Ed, Julia, Derek, Jason, Helen. First names only | Decided 2026-08-27 |
 | **No mathematics, no notation.** The model is linked, never imported | `docs/kinvergence.md`, hard constraint |
 | **No "Kin-" vocabulary.** No KinShip, no Kinnections. Heartbeat and Demo Day keep their ordinary names | Declined 2026-08-06; `docs/glossary.md` § Words we don't use |
@@ -106,9 +117,9 @@ Three reasons, in ascending force:
    document handoff. And with ownership and license unsettled until 2026-09-07, publishing the whole
    corpus is precisely what `ROADMAP.md` calls gating.
 
-Seven dead GitHub links were removed on 2026-08-27 as a result. Section 3 now ends with a promise
-(*"We are writing all of that up properly. It will be here."*) rather than a link. **That promise is
-a commitment — do not leave it unredeemed, and do not redeem it with a link back into the corpus.**
+Section 3 ends with a promise (*"We are writing all of that up properly. It will be here."*) rather
+than a link. **That promise is a commitment — do not leave it unredeemed, and do not redeem it with a
+link back into the corpus.**
 
 ## Do not reintroduce
 
@@ -155,32 +166,23 @@ Settled with Ed on 2026-08-25. Reopen deliberately, not by drift.
 | **Hero** | Lead with the twenty-month false start, not with duration |
 | **Ask** | Give permission to leave first, then ask for correction rather than agreement |
 | **Ask destination** | **No link.** The reader is asked to go back to the member who sent them. The Discord server is invitation-only by design, so linking it publicly would contradict `docs/reference/discord-server.md` |
-| **Honest limits** | The load-bearing one (*we cannot tell from the inside*) stays inside the ask on `index.html` at full weight. The rest live on `honesty.html`. **This reopened the 2026-08-25 "never collapsed, never moved" decision** — see § The limits, and why they moved |
+| **Honest limits** | The load-bearing one (*we cannot tell from the inside*) stays inside the ask on `index.html` at full weight. The rest live on `honesty.html`. See `CHANGELOG.md` 2026-08-27 for why they moved there |
 | **Section order** | SFV's story leads. It is the only real evidence |
 | **Depth** | Only the Heartbeat gets a "try this" treatment on the home page. Everything else is a curated page on this site |
-| **Ask section color** | Deep navy (`--slate-deep`), not near-black. Footer follows in `--navy-deep`. Changed 2026-08-27 on Julia's reaction |
+| **Ask section color** | Deep navy (`--slate-deep`), not near-black. Footer follows in `--navy-deep` |
 
-### The limits, and why they moved
-
-On 2026-08-25 it was decided that the honest limits must be *"never collapsed, never greyed, never
-framed as a disclaimer."* On 2026-08-27 four of the five moved to `honesty.html` anyway, to get the
-home page short enough to actually be read. Ed's call, made explicitly rather than by drift: the
-more recent concern overrides the earlier one.
-
-**The guard, which is the whole basis for allowing it:**
+**The guard on the honest limits, which is the whole basis for splitting them across pages:**
 
 - The load-bearing limit stays on the home page, inside the ask, at full weight, as the ask's own
   justification. It is not a caveat there and must not become one.
 - The link to `honesty.html` is a prominent `.onward` line and **must never become a footnote**.
 - `honesty.html` leads with the n=1 problem in a callout, states what would prove the framework
   wrong, and carries the unsettled ownership question. **Do not soften any of it to make the site
-  more appealing.** If that page ever gets quieter, vaguer, or harder to reach, the 08-25 decision
-  was right and this one was a mistake.
+  more appealing.**
 
 ### Swap-ready hero alternates
 
-Both were approved in the same pass and can be dropped in directly (restated in first person
-2026-08-27):
+Both are approved and can be dropped in directly, in first person:
 
 - *"We have met almost every week for four years — after taking nearly two years to find a shape that stuck."*
 - *"The agreement came in 2020. The rhythm took another two years."*
@@ -237,110 +239,6 @@ or relative; no absolute `github.io` URL appears anywhere.
   only one. Anything further — rendering alignment, drift, or cadence health as checkable states —
   is the model's Part IV diagnostic language and belongs to the deferred brand pass, not here.
 
-### Settled
-
-- **Should the site name members?** **Yes** — decided 2026-08-27. Ed, Julia, Derek, Jason, Helen,
-  first names only. Both the credibility gain and the anti-"AI slop" effect were larger than
-  expected; the privacy cost is small, since all four are already public on the SFV site.
-
-## Feedback awaiting action
-
-**Julia, via the SFV Telegram group, night of 2026-08-27 — her first read of the Pass 2 four-page
-site.** Recorded as evidence, not yet applied — Ed's attention moved to `advance-sfv-2.md` the next
-day. Apply before Julia's reunion (09-18) and before treating Pass 2 as done.
-
-| She said | Reading / action |
-|---|---|
-| Liked the four-page split; "Skip to the practice" vs. "Start from the beginning" — "like a quick start option when you buy a new tool" | Validates the Pass 2 structural bet. No action |
-| Timeline "so, so cool"; found it interesting/inspiring despite having lived it; "leaving no trace... so important" | `story.html`'s no-trace argument (open claim 2) lands even for a member who was there. No action |
-| "What we got wrong" is "illuminating... people will like seeing that, haha" | `honesty.html`'s errors section works as intended. No action |
-| "This does *not* read like AI slop at all" | Direct reversal of her Pass 1 reaction. The first-person, named-members voice fix worked. No action |
-| Confused by "Carried in the open…" under "What we do not know" — asked whether it means the limits are freely exposed for others to observe or modify | **Actionable.** Ambiguous even to a sympathetic reader on a second pass. Needs a clearer rephrase on `honesty.html` |
-| "The one that matters most: YES. This sums up the purpose of the site succinctly and clearly" | The load-bearing limit (kept at full weight per § The limits, and why they moved) is landing as intended. No action |
-| Liked the list of things never tested | No action |
-| Loved *"Nobody has ever asked a family outside ours whether they want any of this... you are among the first to be asked"* — "I'd highlight it in some way" | **Actionable.** Consider a visual callout/pull-quote treatment on `honesty.html` |
-| "Who holds this" — "interesting... will do so [think about it] when the time is right" | Ownership question landing as intended; she's holding it for the 09-07 Demo Day conversation, not asking for a site change |
-| The "Put it on the calendar" ask at the bottom "did not jump out... in fact, I nearly missed it. Perhaps it was the blue color" | **Actionable, and the most important item here** — the ask is the whole point of the site and is under-visible. See tension note below |
-| "Cut to the chase" (short) path "worked just fine... ample information without being overwhelming" | Validates the "Skip to the practice" quick-start path |
-| Expects first-time visitors to go back and forth between long and short, "like thumbing through the chapters of a book" | Validates the dual-path navigation model |
-
-Sign-off: *"Well done, Little Brother. I like this direction."*
-
-**Tension with an existing decision.** The ask section's color was changed to deep navy specifically
-on 2026-08-27 because of an earlier Julia reaction against near-black. This new reaction — the same
-section barely noticed, "perhaps... the blue color" — could mean that fix undershot, or that
-visibility here is a weight/size/whitespace problem rather than a hue problem. Needs a fresh look at
-the section as a whole, not just another color swap.
-
-## History
-
-- **2026-08-27 — Pass 2: three curated pages, and the home page finally gets short.** Split into
-  four pages with shared `assets/site.css` and `assets/site.js`. The home page went 1,710 → ~1,170
-  words, **41% below the 2026-08-25 original**, which is what Pass 1's editing could not achieve on
-  its own.
-
-  **The structural point:** Ed's *"there should be deeper content"* and Julia's *"way too wordy"*
-  looked like opposite instructions and were the same one — *move depth off the front page*. Nothing
-  was deleted; the front page got shorter and the site got deeper in the same operation.
-
-  `story.html` and `honesty.html` also carry material the site has never shown a reader before: the
-  corrections we have made to our own published history, and an explicit statement of what would
-  falsify the framework. Both are stronger arguments than anything that was cut.
-
-  Also: the honest-limits decision was deliberately reopened — see § The limits, and why they moved.
-
-  **The cadence diagram** was added in the same pass — see § The cadence diagram. It is the site's
-  first non-text element and it answers Ed's request to show *a little structure* without importing
-  any of the model's notation.
-
-- **2026-08-27 — Pass 1: voice, concision, correctness.** Ed's and Julia's feedback applied. The
-  whole page moved into first person with members named.
-
-  **On length, the honest number: body copy fell from 1,996 words to 1,710 — 14%, not the third
-  that was aimed for.** Two rounds of cutting were run and the second produced diminishing returns.
-  The reason is worth recording, because it will recur: **what is left is not padding, it is
-  structure.** Per section — story 526, practice 442, the ask 337, hopes 297, hero 108. Nothing
-  above is filler; three of those blocks are page-worth content sitting on a front page. Shaving
-  further degrades the writing without meaningfully shortening the read. **The remaining reduction
-  has to come from moving content onto separate pages, not from editing sentences** — which is what
-  Pass 2 is for. Do not re-attempt this by trimming; it has been tried twice.
-
-  **The single finding worth carrying forward:** Julia's *"way too wordy — sets off my AI slop
-  radar, too many adjectives and adverbs"* and Ed's *"it's a lot of text"* were the **same defect
-  with one cause** — the page narrated SFV in the third person while being written by SFV. Every
-  fact about the family had to be routed through an anonymizing construction (*"the group's own
-  reading of that now, having thought about it a great deal, is…"*), and those constructions were
-  the adjectives. Julia had independently proposed the fix without naming it: *"Ex.: 'This is our
-  family, and we would like to know…'"* — which is now the hero's closing sentence nearly verbatim.
-
-  **What Julia reacted to, recorded as evidence rather than as a change list** — her review was the
-  first from anyone reading this as a reader rather than an author:
-
-  | She said | What it turned out to indicate |
-  |---|---|
-  | Liked the nav bar, the *"Four relatives…"* opener, *"What it will not become"*, and the ask's different color | All kept |
-  | *"Descriptive sentence under it needs refinement"* | The hero switched person mid-paragraph — "they… we". A real defect, not a style note |
-  | Named the heading *"What this could be"* while quoting the H2 *"What we want this to become"* | The nav label and the heading disagreed. Both now read **"What we hope this becomes"** — her preferred register, aspirational and humble |
-  | *"'What we are actually short of is not interest. It is a second family.' I don't understand this"* | The line was also **false** — `vision.md` says plainly that whether anybody wants this is unknown, since no family outside SFV has ever been asked. Deleted, not reworded |
-  | *"'What else we not know…' I don't understand this"* | The "else" referred back to a sentence three paragraphs earlier. Now **"What we still do not know"** |
-  | *"Enough to try one thing — YEP, that's the heart of this message"* + *"Do or do not. There is no try. —Yoda"* | Kept as the heart; retitled **"Enough to start"**, which is unambiguously a statement and drops "try" |
-  | *"Maybe something other than black"* for the ask | Now deep navy, with the footer following |
-  | *"I can help with that"* (on concision) | **Take her up on it.** A shorter page in her own voice is a better use of her than arguing adjectives |
-
-  **Also fixed:** "Three things that are easy to get wrong" listed four (the two "expect…" items are
-  now merged); the founding blockquote ran the full 62rem because it sat outside `.measure`
-  (`blockquote` now carries `max-width` globally); `-webkit-backdrop-filter` added for Safari and
-  iOS, which is the likely browser for a link arriving by text message.
-
-  **Added from the 2026-08-26/27 timeline revisions**, all grade A: Derek's *"I hate meetings. but I
-  look forward to FV meetings…"* — the most human sentence in the corpus and the page's first answer
-  to *why family*; the first Demo Day being a week late because Derek was sick; the annual themes
-  (*No Excuses!*, *Align!*); and the fact that the cadence was **checked against the archive rather
-  than remembered**, phrased as "the longest we ever went without a Heartbeat was three weeks" to
-  respect the no-cumulative-counts rule.
-
-  **Seven GitHub links removed** — see § The repository is not the publication.
-
-- **2026-08-25** — Built. Single page, four sections, verified at three widths. Nothing about the
-  page's factual claims has needed changing since, including through the 2026-08-26 timeline
-  corrections — a consequence of the no-cumulative-counts rule rather than luck.
+See `CHANGELOG.md` for resolved questions (e.g. whether the site names members) and for Julia's
+Pass 2 feedback, including the two items still flagged actionable there, and for the site's build
+history (Pass 1, Pass 2, and the 2026-08-25 initial build).
